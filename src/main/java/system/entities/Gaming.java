@@ -55,7 +55,7 @@ public class Gaming implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date gdate;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "gid")
-    private List<Participation> participationsList;
+    private List<ParticipationGaming> participationGamingList;
 
     public Gaming() {
     }
@@ -94,12 +94,12 @@ public class Gaming implements Serializable {
     }
 
     @XmlTransient
-    public List<Participation> getParticipationsList() {
-        return participationsList;
+    public List<ParticipationGaming> getParticipationGamingList() {
+        return participationGamingList;
     }
 
-    public void setParticipationsList(List<Participation> participationsList) {
-        this.participationsList = participationsList;
+    public void setParticipationGamingList(List<ParticipationGaming> participationGamingList) {
+        this.participationGamingList = participationGamingList;
     }
 
     @Override

@@ -46,7 +46,7 @@ public class GamingStats implements Serializable {
     @Column(name = "grade")
     private int grade;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "gsid")
-    private List<Participation> participationsList;
+    private List<ParticipationGaming> participationGamingList;
 
     public GamingStats() {
     }
@@ -77,12 +77,12 @@ public class GamingStats implements Serializable {
     }
 
     @XmlTransient
-    public List<Participation> getParticipationsList() {
-        return participationsList;
+    public List<ParticipationGaming> getParticipationGamingList() {
+        return participationGamingList;
     }
 
-    public void setParticipationsList(List<Participation> participationsList) {
-        this.participationsList = participationsList;
+    public void setParticipationGamingList(List<ParticipationGaming> participationGamingList) {
+        this.participationGamingList = participationGamingList;
     }
 
     @Override

@@ -54,7 +54,9 @@ public class Stadium implements Serializable {
     @Column(name = "location")
     private String location;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sid")
-    private List<Participation> participationsList;
+    private List<ParticipationTraining> participationTrainingList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sid")
+    private List<ParticipationGaming> participationGamingList;
 
     public Stadium() {
     }
@@ -94,12 +96,21 @@ public class Stadium implements Serializable {
     }
 
     @XmlTransient
-    public List<Participation> getParticipationsList() {
-        return participationsList;
+    public List<ParticipationTraining> getParticipationTrainingList() {
+        return participationTrainingList;
     }
 
-    public void setParticipationsList(List<Participation> participationsList) {
-        this.participationsList = participationsList;
+    public void setParticipationTrainingList(List<ParticipationTraining> participationTrainingList) {
+        this.participationTrainingList = participationTrainingList;
+    }
+
+    @XmlTransient
+    public List<ParticipationGaming> getParticipationGamingList() {
+        return participationGamingList;
+    }
+
+    public void setParticipationGamingList(List<ParticipationGaming> participationGamingList) {
+        this.participationGamingList = participationGamingList;
     }
 
     @Override

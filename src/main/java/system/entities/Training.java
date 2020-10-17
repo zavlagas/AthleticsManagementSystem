@@ -49,8 +49,8 @@ public class Training implements Serializable {
     @Column(name = "trdate")
     @Temporal(TemporalType.DATE)
     private Date trdate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tid")
-    private List<Participation> participationsList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "trid")
+    private List<ParticipationTraining> participationTrainingList;
 
     public Training() {
     }
@@ -81,12 +81,12 @@ public class Training implements Serializable {
     }
 
     @XmlTransient
-    public List<Participation> getParticipationsList() {
-        return participationsList;
+    public List<ParticipationTraining> getParticipationTrainingList() {
+        return participationTrainingList;
     }
 
-    public void setParticipationsList(List<Participation> participationsList) {
-        this.participationsList = participationsList;
+    public void setParticipationTrainingList(List<ParticipationTraining> participationTrainingList) {
+        this.participationTrainingList = participationTrainingList;
     }
 
     @Override

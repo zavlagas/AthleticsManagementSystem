@@ -24,12 +24,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author User
  */
 @Entity
-@Table(name = "participations")
+@Table(name = "participation_training")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Participation.findAll", query = "SELECT p FROM Participation p"),
-    @NamedQuery(name = "Participation.findById", query = "SELECT p FROM Participation p WHERE p.id = :id")})
-public class Participation implements Serializable {
+    @NamedQuery(name = "ParticipationTraining.findAll", query = "SELECT p FROM ParticipationTraining p"),
+    @NamedQuery(name = "ParticipationTraining.findById", query = "SELECT p FROM ParticipationTraining p WHERE p.id = :id")})
+public class ParticipationTraining implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -40,29 +40,20 @@ public class Participation implements Serializable {
     @JoinColumn(name = "arid", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private AthleteRegistration arid;
-    @JoinColumn(name = "crid", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private CoacheRegistration crid;
-    @JoinColumn(name = "gsid", referencedColumnName = "gsid")
-    @ManyToOne(optional = false)
-    private GamingStats gsid;
-    @JoinColumn(name = "gid", referencedColumnName = "gid")
-    @ManyToOne(optional = false)
-    private Gaming gid;
     @JoinColumn(name = "sid", referencedColumnName = "sid")
     @ManyToOne(optional = false)
     private Stadium sid;
     @JoinColumn(name = "tsid", referencedColumnName = "tsid")
     @ManyToOne(optional = false)
     private TrainingStats tsid;
-    @JoinColumn(name = "tid", referencedColumnName = "trid")
+    @JoinColumn(name = "trid", referencedColumnName = "trid")
     @ManyToOne(optional = false)
-    private Training tid;
+    private Training trid;
 
-    public Participation() {
+    public ParticipationTraining() {
     }
 
-    public Participation(Integer id) {
+    public ParticipationTraining(Integer id) {
         this.id = id;
     }
 
@@ -82,30 +73,6 @@ public class Participation implements Serializable {
         this.arid = arid;
     }
 
-    public CoacheRegistration getCrid() {
-        return crid;
-    }
-
-    public void setCrid(CoacheRegistration crid) {
-        this.crid = crid;
-    }
-
-    public GamingStats getGsid() {
-        return gsid;
-    }
-
-    public void setGsid(GamingStats gsid) {
-        this.gsid = gsid;
-    }
-
-    public Gaming getGid() {
-        return gid;
-    }
-
-    public void setGid(Gaming gid) {
-        this.gid = gid;
-    }
-
     public Stadium getSid() {
         return sid;
     }
@@ -122,12 +89,12 @@ public class Participation implements Serializable {
         this.tsid = tsid;
     }
 
-    public Training getTid() {
-        return tid;
+    public Training getTrid() {
+        return trid;
     }
 
-    public void setTid(Training tid) {
-        this.tid = tid;
+    public void setTrid(Training trid) {
+        this.trid = trid;
     }
 
     @Override
@@ -140,10 +107,10 @@ public class Participation implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Participation)) {
+        if (!(object instanceof ParticipationTraining)) {
             return false;
         }
-        Participation other = (Participation) object;
+        ParticipationTraining other = (ParticipationTraining) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -152,7 +119,7 @@ public class Participation implements Serializable {
 
     @Override
     public String toString() {
-        return "system.entities.Participations[ id=" + id + " ]";
+        return "system.entities.ParticipationTraining[ id=" + id + " ]";
     }
     
 }

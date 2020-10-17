@@ -6,7 +6,6 @@
 package system.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,9 +17,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -28,13 +24,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author User
  */
 @Entity
-@Table(name = "coaches_registration")
+@Table(name = "participation_gaming")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "CoacheRegistration.findAll", query = "SELECT c FROM CoacheRegistration c"),
-    @NamedQuery(name = "CoacheRegistration.findById", query = "SELECT c FROM CoacheRegistration c WHERE c.id = :id"),
-    @NamedQuery(name = "CoacheRegistration.findByRegdate", query = "SELECT c FROM CoacheRegistration c WHERE c.regdate = :regdate")})
-public class CoacheRegistration implements Serializable {
+    @NamedQuery(name = "ParticipationGaming.findAll", query = "SELECT p FROM ParticipationGaming p"),
+    @NamedQuery(name = "ParticipationGaming.findById", query = "SELECT p FROM ParticipationGaming p WHERE p.id = :id")})
+public class ParticipationGaming implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -42,28 +37,24 @@ public class CoacheRegistration implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "regdate")
-    @Temporal(TemporalType.DATE)
-    private Date regdate;
-    @JoinColumn(name = "cid", referencedColumnName = "cid")
+    @JoinColumn(name = "arid", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Coache cid;
-    @JoinColumn(name = "tid", referencedColumnName = "tid")
+    private AthleteRegistration arid;
+    @JoinColumn(name = "gsid", referencedColumnName = "gsid")
     @ManyToOne(optional = false)
-    private Team tid;
+    private GamingStats gsid;
+    @JoinColumn(name = "gid", referencedColumnName = "gid")
+    @ManyToOne(optional = false)
+    private Gaming gid;
+    @JoinColumn(name = "sid", referencedColumnName = "sid")
+    @ManyToOne(optional = false)
+    private Stadium sid;
 
-    public CoacheRegistration() {
+    public ParticipationGaming() {
     }
 
-    public CoacheRegistration(Integer id) {
+    public ParticipationGaming(Integer id) {
         this.id = id;
-    }
-
-    public CoacheRegistration(Integer id, Date regdate) {
-        this.id = id;
-        this.regdate = regdate;
     }
 
     public Integer getId() {
@@ -74,28 +65,36 @@ public class CoacheRegistration implements Serializable {
         this.id = id;
     }
 
-    public Date getRegdate() {
-        return regdate;
+    public AthleteRegistration getArid() {
+        return arid;
     }
 
-    public void setRegdate(Date regdate) {
-        this.regdate = regdate;
+    public void setArid(AthleteRegistration arid) {
+        this.arid = arid;
     }
 
-    public Coache getCid() {
-        return cid;
+    public GamingStats getGsid() {
+        return gsid;
     }
 
-    public void setCid(Coache cid) {
-        this.cid = cid;
+    public void setGsid(GamingStats gsid) {
+        this.gsid = gsid;
     }
 
-    public Team getTid() {
-        return tid;
+    public Gaming getGid() {
+        return gid;
     }
 
-    public void setTid(Team tid) {
-        this.tid = tid;
+    public void setGid(Gaming gid) {
+        this.gid = gid;
+    }
+
+    public Stadium getSid() {
+        return sid;
+    }
+
+    public void setSid(Stadium sid) {
+        this.sid = sid;
     }
 
     @Override
@@ -108,10 +107,10 @@ public class CoacheRegistration implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CoacheRegistration)) {
+        if (!(object instanceof ParticipationGaming)) {
             return false;
         }
-        CoacheRegistration other = (CoacheRegistration) object;
+        ParticipationGaming other = (ParticipationGaming) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -120,7 +119,7 @@ public class CoacheRegistration implements Serializable {
 
     @Override
     public String toString() {
-        return "system.entities.CoachesRegistration[ id=" + id + " ]";
+        return "system.entities.ParticipationGaming[ id=" + id + " ]";
     }
     
 }

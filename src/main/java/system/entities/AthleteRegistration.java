@@ -52,7 +52,9 @@ public class AthleteRegistration implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date regdate;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "arid")
-    private List<Participation> participationsList;
+    private List<ParticipationTraining> participationTrainingList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "arid")
+    private List<ParticipationGaming> participationGamingList;
     @JoinColumn(name = "aid", referencedColumnName = "aid")
     @ManyToOne(optional = false)
     private Athlete aid;
@@ -89,12 +91,21 @@ public class AthleteRegistration implements Serializable {
     }
 
     @XmlTransient
-    public List<Participation> getParticipationsList() {
-        return participationsList;
+    public List<ParticipationTraining> getParticipationTrainingList() {
+        return participationTrainingList;
     }
 
-    public void setParticipationsList(List<Participation> participationsList) {
-        this.participationsList = participationsList;
+    public void setParticipationTrainingList(List<ParticipationTraining> participationTrainingList) {
+        this.participationTrainingList = participationTrainingList;
+    }
+
+    @XmlTransient
+    public List<ParticipationGaming> getParticipationGamingList() {
+        return participationGamingList;
+    }
+
+    public void setParticipationGamingList(List<ParticipationGaming> participationGamingList) {
+        this.participationGamingList = participationGamingList;
     }
 
     public Athlete getAid() {

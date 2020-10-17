@@ -2,17 +2,18 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="amsPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>system.entities.ParticipationGaming</class>
+    <class>system.entities.ParticipationTraining</class>
     <class>system.entities.TrainingStats</class>
     <class>system.entities.GamingStats</class>
-    <class>system.entities.Team</class>
-    <class>system.entities.Stadium</class>
-    <class>system.entities.Training</class>
-    <class>system.entities.Participation</class>
-    <class>system.entities.Gaming</class>
-    <class>system.entities.CoacheRegistration</class>
-    <class>system.entities.AthleteRegistration</class>
     <class>system.entities.Athlete</class>
+    <class>system.entities.AthleteRegistration</class>
     <class>system.entities.Coache</class>
+    <class>system.entities.CoacheRegistration</class>
+    <class>system.entities.Gaming</class>
+    <class>system.entities.Stadium</class>
+    <class>system.entities.Team</class>
+    <class>system.entities.Training</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ams?serverTimezone=Europe/Athens"/>
