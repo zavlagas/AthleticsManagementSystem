@@ -19,7 +19,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -28,69 +27,53 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author User
  */
 @Entity
-@Table(name = "stadiums")
+@Table(name = "gaming_stats")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Stadium.findAll", query = "SELECT s FROM Stadium s"),
-    @NamedQuery(name = "Stadium.findBySid", query = "SELECT s FROM Stadium s WHERE s.sid = :sid"),
-    @NamedQuery(name = "Stadium.findByName", query = "SELECT s FROM Stadium s WHERE s.name = :name"),
-    @NamedQuery(name = "Stadium.findByLocation", query = "SELECT s FROM Stadium s WHERE s.location = :location")})
-public class Stadium implements Serializable {
+    @NamedQuery(name = "GamingStats.findAll", query = "SELECT g FROM GamingStats g"),
+    @NamedQuery(name = "GamingStats.findByGsid", query = "SELECT g FROM GamingStats g WHERE g.gsid = :gsid"),
+    @NamedQuery(name = "GamingStats.findByGrade", query = "SELECT g FROM GamingStats g WHERE g.grade = :grade")})
+public class GamingStats implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "sid")
-    private Integer sid;
+    @Column(name = "gsid")
+    private Integer gsid;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "name")
-    private String name;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "location")
-    private String location;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sid")
+    @Column(name = "grade")
+    private int grade;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "gsid")
     private List<Participation> participationsList;
 
-    public Stadium() {
+    public GamingStats() {
     }
 
-    public Stadium(Integer sid) {
-        this.sid = sid;
+    public GamingStats(Integer gsid) {
+        this.gsid = gsid;
     }
 
-    public Stadium(Integer sid, String name, String location) {
-        this.sid = sid;
-        this.name = name;
-        this.location = location;
+    public GamingStats(Integer gsid, int grade) {
+        this.gsid = gsid;
+        this.grade = grade;
     }
 
-    public Integer getSid() {
-        return sid;
+    public Integer getGsid() {
+        return gsid;
     }
 
-    public void setSid(Integer sid) {
-        this.sid = sid;
+    public void setGsid(Integer gsid) {
+        this.gsid = gsid;
     }
 
-    public String getName() {
-        return name;
+    public int getGrade() {
+        return grade;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
+    public void setGrade(int grade) {
+        this.grade = grade;
     }
 
     @XmlTransient
@@ -105,18 +88,18 @@ public class Stadium implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (sid != null ? sid.hashCode() : 0);
+        hash += (gsid != null ? gsid.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Stadium)) {
+        if (!(object instanceof GamingStats)) {
             return false;
         }
-        Stadium other = (Stadium) object;
-        if ((this.sid == null && other.sid != null) || (this.sid != null && !this.sid.equals(other.sid))) {
+        GamingStats other = (GamingStats) object;
+        if ((this.gsid == null && other.gsid != null) || (this.gsid != null && !this.gsid.equals(other.gsid))) {
             return false;
         }
         return true;
@@ -124,7 +107,7 @@ public class Stadium implements Serializable {
 
     @Override
     public String toString() {
-        return "system.entities.Stadiums[ sid=" + sid + " ]";
+        return "system.entities.GamingStats[ gsid=" + gsid + " ]";
     }
     
 }

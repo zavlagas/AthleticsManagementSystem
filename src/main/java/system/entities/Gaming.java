@@ -6,6 +6,7 @@
 package system.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -18,6 +19,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -28,69 +31,66 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author User
  */
 @Entity
-@Table(name = "stadiums")
+@Table(name = "gamings")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Stadium.findAll", query = "SELECT s FROM Stadium s"),
-    @NamedQuery(name = "Stadium.findBySid", query = "SELECT s FROM Stadium s WHERE s.sid = :sid"),
-    @NamedQuery(name = "Stadium.findByName", query = "SELECT s FROM Stadium s WHERE s.name = :name"),
-    @NamedQuery(name = "Stadium.findByLocation", query = "SELECT s FROM Stadium s WHERE s.location = :location")})
-public class Stadium implements Serializable {
+    @NamedQuery(name = "Gaming.findAll", query = "SELECT g FROM Gaming g"),
+    @NamedQuery(name = "Gaming.findByGid", query = "SELECT g FROM Gaming g WHERE g.gid = :gid"),
+    @NamedQuery(name = "Gaming.findByGresult", query = "SELECT g FROM Gaming g WHERE g.gresult = :gresult"),
+    @NamedQuery(name = "Gaming.findByGdate", query = "SELECT g FROM Gaming g WHERE g.gdate = :gdate")})
+public class Gaming implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "sid")
-    private Integer sid;
+    @Column(name = "gid")
+    private Integer gid;
+    @Size(max = 10)
+    @Column(name = "gresult")
+    private String gresult;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "name")
-    private String name;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "location")
-    private String location;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sid")
+    @Column(name = "gdate")
+    @Temporal(TemporalType.DATE)
+    private Date gdate;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "gid")
     private List<Participation> participationsList;
 
-    public Stadium() {
+    public Gaming() {
     }
 
-    public Stadium(Integer sid) {
-        this.sid = sid;
+    public Gaming(Integer gid) {
+        this.gid = gid;
     }
 
-    public Stadium(Integer sid, String name, String location) {
-        this.sid = sid;
-        this.name = name;
-        this.location = location;
+    public Gaming(Integer gid, Date gdate) {
+        this.gid = gid;
+        this.gdate = gdate;
     }
 
-    public Integer getSid() {
-        return sid;
+    public Integer getGid() {
+        return gid;
     }
 
-    public void setSid(Integer sid) {
-        this.sid = sid;
+    public void setGid(Integer gid) {
+        this.gid = gid;
     }
 
-    public String getName() {
-        return name;
+    public String getGresult() {
+        return gresult;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setGresult(String gresult) {
+        this.gresult = gresult;
     }
 
-    public String getLocation() {
-        return location;
+    public Date getGdate() {
+        return gdate;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setGdate(Date gdate) {
+        this.gdate = gdate;
     }
 
     @XmlTransient
@@ -105,18 +105,18 @@ public class Stadium implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (sid != null ? sid.hashCode() : 0);
+        hash += (gid != null ? gid.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Stadium)) {
+        if (!(object instanceof Gaming)) {
             return false;
         }
-        Stadium other = (Stadium) object;
-        if ((this.sid == null && other.sid != null) || (this.sid != null && !this.sid.equals(other.sid))) {
+        Gaming other = (Gaming) object;
+        if ((this.gid == null && other.gid != null) || (this.gid != null && !this.gid.equals(other.gid))) {
             return false;
         }
         return true;
@@ -124,7 +124,7 @@ public class Stadium implements Serializable {
 
     @Override
     public String toString() {
-        return "system.entities.Stadiums[ sid=" + sid + " ]";
+        return "system.entities.Gamings[ gid=" + gid + " ]";
     }
     
 }

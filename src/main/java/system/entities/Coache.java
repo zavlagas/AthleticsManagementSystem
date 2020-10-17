@@ -6,6 +6,7 @@
 package system.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -28,55 +29,53 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author User
  */
 @Entity
-@Table(name = "teams")
+@Table(name = "coaches")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Team.findAll", query = "SELECT t FROM Team t"),
-    @NamedQuery(name = "Team.findByTid", query = "SELECT t FROM Team t WHERE t.tid = :tid"),
-    @NamedQuery(name = "Team.findByName", query = "SELECT t FROM Team t WHERE t.name = :name"),
-    @NamedQuery(name = "Team.findBySport", query = "SELECT t FROM Team t WHERE t.sport = :sport")})
-public class Team implements Serializable {
+    @NamedQuery(name = "Coache.findAll", query = "SELECT c FROM Coaches c"),
+    @NamedQuery(name = "Coache.findByCid", query = "SELECT c FROM Coache c WHERE c.cid = :cid"),
+    @NamedQuery(name = "Coache.findByName", query = "SELECT c FROM Coache c WHERE c.name = :name"),
+    @NamedQuery(name = "Coache.findBySalary", query = "SELECT c FROM Coache c WHERE c.salary = :salary")})
+public class Coache implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "tid")
-    private Integer tid;
+    @Column(name = "cid")
+    private Integer cid;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "name")
     private String name;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "sport")
-    private String sport;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tid")
-    private List<AthleteRegistration> athletesRegistrationList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tid")
+    @Column(name = "salary")
+    private BigDecimal salary;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cid")
     private List<CoacheRegistration> coachesRegistrationList;
 
-    public Team() {
+    public Coache() {
     }
 
-    public Team(Integer tid) {
-        this.tid = tid;
+    public Coache(Integer cid) {
+        this.cid = cid;
     }
 
-    public Team(Integer tid, String name, String sport) {
-        this.tid = tid;
+    public Coache(Integer cid, String name, BigDecimal salary) {
+        this.cid = cid;
         this.name = name;
-        this.sport = sport;
+        this.salary = salary;
     }
 
-    public Integer getTid() {
-        return tid;
+    public Integer getCid() {
+        return cid;
     }
 
-    public void setTid(Integer tid) {
-        this.tid = tid;
+    public void setCid(Integer cid) {
+        this.cid = cid;
     }
 
     public String getName() {
@@ -87,21 +86,12 @@ public class Team implements Serializable {
         this.name = name;
     }
 
-    public String getSport() {
-        return sport;
+    public BigDecimal getSalary() {
+        return salary;
     }
 
-    public void setSport(String sport) {
-        this.sport = sport;
-    }
-
-    @XmlTransient
-    public List<AthleteRegistration> getAthletesRegistrationList() {
-        return athletesRegistrationList;
-    }
-
-    public void setAthletesRegistrationList(List<AthleteRegistration> athletesRegistrationList) {
-        this.athletesRegistrationList = athletesRegistrationList;
+    public void setSalary(BigDecimal salary) {
+        this.salary = salary;
     }
 
     @XmlTransient
@@ -116,18 +106,18 @@ public class Team implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (tid != null ? tid.hashCode() : 0);
+        hash += (cid != null ? cid.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Team)) {
+        if (!(object instanceof Coache)) {
             return false;
         }
-        Team other = (Team) object;
-        if ((this.tid == null && other.tid != null) || (this.tid != null && !this.tid.equals(other.tid))) {
+        Coache other = (Coache) object;
+        if ((this.cid == null && other.cid != null) || (this.cid != null && !this.cid.equals(other.cid))) {
             return false;
         }
         return true;
@@ -135,7 +125,7 @@ public class Team implements Serializable {
 
     @Override
     public String toString() {
-        return "system.entities.Teams[ tid=" + tid + " ]";
+        return "system.entities.Coaches[ cid=" + cid + " ]";
     }
-    
+
 }

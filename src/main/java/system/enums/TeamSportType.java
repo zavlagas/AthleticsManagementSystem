@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package system.entities;
+package system.enums;
 
 /**
  *
  * @author User
  */
-public class Coach {
-    
+public enum TeamSportType {
+    VOLLEYBALL, BASKETBALL, SOCCER
 }
