@@ -43,7 +43,7 @@ public class Coache implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "cid")
-    private Integer cid;
+    private int cid;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -53,7 +53,7 @@ public class Coache implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "salary")
-    private BigDecimal salary;
+    private double salary;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cid")
     private List<CoacheRegistration> coachesRegistrationList;
 
@@ -64,17 +64,17 @@ public class Coache implements Serializable {
         this.cid = cid;
     }
 
-    public Coache(Integer cid, String name, BigDecimal salary) {
+    public Coache(Integer cid, String name, double salary) {
         this.cid = cid;
         this.name = name;
         this.salary = salary;
     }
 
-    public Integer getCid() {
+    public int getCid() {
         return cid;
     }
 
-    public void setCid(Integer cid) {
+    public void setCid(int cid) {
         this.cid = cid;
     }
 
@@ -86,11 +86,11 @@ public class Coache implements Serializable {
         this.name = name;
     }
 
-    public BigDecimal getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(BigDecimal salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
@@ -105,23 +105,30 @@ public class Coache implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (cid != null ? cid.hashCode() : 0);
+        int hash = 5;
+        hash = 89 * hash + this.cid;
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Coache)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Coache other = (Coache) object;
-        if ((this.cid == null && other.cid != null) || (this.cid != null && !this.cid.equals(other.cid))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Coache other = (Coache) obj;
+        if (this.cid != other.cid) {
             return false;
         }
         return true;
     }
+
+    
 
     @Override
     public String toString() {

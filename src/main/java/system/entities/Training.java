@@ -8,6 +8,7 @@ package system.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -43,7 +44,7 @@ public class Training implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "trid")
-    private Integer trid;
+    private int trid;
     @Basic(optional = false)
     @NotNull
     @Column(name = "trdate")
@@ -55,20 +56,20 @@ public class Training implements Serializable {
     public Training() {
     }
 
-    public Training(Integer trid) {
+    public Training(int trid) {
         this.trid = trid;
     }
 
-    public Training(Integer trid, Date trdate) {
+    public Training(int trid, Date trdate) {
         this.trid = trid;
         this.trdate = trdate;
     }
 
-    public Integer getTrid() {
+    public int getTrid() {
         return trid;
     }
 
-    public void setTrid(Integer trid) {
+    public void setTrid(int trid) {
         this.trid = trid;
     }
 
@@ -91,23 +92,33 @@ public class Training implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (trid != null ? trid.hashCode() : 0);
+        int hash = 3;
+        hash = 97 * hash + this.trid;
+        hash = 97 * hash + Objects.hashCode(this.trdate);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Training)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Training other = (Training) object;
-        if ((this.trid == null && other.trid != null) || (this.trid != null && !this.trid.equals(other.trid))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Training other = (Training) obj;
+        if (this.trid != other.trid) {
+            return false;
+        }
+        if (!Objects.equals(this.trdate, other.trdate)) {
             return false;
         }
         return true;
     }
+
 
     @Override
     public String toString() {

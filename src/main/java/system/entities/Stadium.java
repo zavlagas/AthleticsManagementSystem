@@ -7,6 +7,7 @@ package system.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -42,7 +43,7 @@ public class Stadium implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "sid")
-    private Integer sid;
+    private int sid;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -61,7 +62,7 @@ public class Stadium implements Serializable {
     public Stadium() {
     }
 
-    public Stadium(Integer sid) {
+    public Stadium(int sid) {
         this.sid = sid;
     }
 
@@ -75,7 +76,7 @@ public class Stadium implements Serializable {
         return sid;
     }
 
-    public void setSid(Integer sid) {
+    public void setSid(int sid) {
         this.sid = sid;
     }
 
@@ -115,23 +116,34 @@ public class Stadium implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (sid != null ? sid.hashCode() : 0);
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.name);
+        hash = 71 * hash + Objects.hashCode(this.location);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Stadium)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Stadium other = (Stadium) object;
-        if ((this.sid == null && other.sid != null) || (this.sid != null && !this.sid.equals(other.sid))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Stadium other = (Stadium) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.location, other.location)) {
             return false;
         }
         return true;
     }
+
+    
 
     @Override
     public String toString() {

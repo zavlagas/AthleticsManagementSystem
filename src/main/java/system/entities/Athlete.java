@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -48,7 +49,7 @@ public class Athlete implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "aid")
-    private Integer aid;
+    private int aid;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -58,11 +59,11 @@ public class Athlete implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "height")
-    private BigDecimal height;
+    private double height;
     @Basic(optional = false)
     @NotNull
     @Column(name = "weight")
-    private BigDecimal weight;
+    private double weight;
     @Basic(optional = false)
     @NotNull
     @Column(name = "dob")
@@ -78,7 +79,7 @@ public class Athlete implements Serializable {
         this.aid = aid;
     }
 
-    public Athlete(Integer aid, String name, BigDecimal height, BigDecimal weight, Date dob) {
+    public Athlete(int aid, String name, double height, double weight, Date dob) {
         this.aid = aid;
         this.name = name;
         this.height = height;
@@ -102,19 +103,19 @@ public class Athlete implements Serializable {
         this.name = name;
     }
 
-    public BigDecimal getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(BigDecimal height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
-    public BigDecimal getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(BigDecimal weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
@@ -137,23 +138,44 @@ public class Athlete implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (aid != null ? aid.hashCode() : 0);
+        int hash = 3;
+        hash = 59 * hash + Objects.hashCode(this.name);
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.height) ^ (Double.doubleToLongBits(this.height) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.weight) ^ (Double.doubleToLongBits(this.weight) >>> 32));
+        hash = 59 * hash + Objects.hashCode(this.dob);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Athlete)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Athlete other = (Athlete) object;
-        if ((this.aid == null && other.aid != null) || (this.aid != null && !this.aid.equals(other.aid))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Athlete other = (Athlete) obj;
+        if (Double.doubleToLongBits(this.height) != Double.doubleToLongBits(other.height)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.weight) != Double.doubleToLongBits(other.weight)) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.dob, other.dob)) {
             return false;
         }
         return true;
     }
+
+    
+
+    
 
     @Override
     public String toString() {

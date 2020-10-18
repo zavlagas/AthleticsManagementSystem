@@ -45,7 +45,7 @@ public class AthleteRegistration implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Integer id;
+    private int id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "regdate")
@@ -65,20 +65,20 @@ public class AthleteRegistration implements Serializable {
     public AthleteRegistration() {
     }
 
-    public AthleteRegistration(Integer id) {
+    public AthleteRegistration(int id) {
         this.id = id;
     }
 
-    public AthleteRegistration(Integer id, Date regdate) {
+    public AthleteRegistration(int id, Date regdate) {
         this.id = id;
         this.regdate = regdate;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -126,24 +126,30 @@ public class AthleteRegistration implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        int hash = 5;
+        hash = 19 * hash + this.id;
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof AthleteRegistration)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        AthleteRegistration other = (AthleteRegistration) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final AthleteRegistration other = (AthleteRegistration) obj;
+        if (this.id != other.id) {
             return false;
         }
         return true;
     }
 
+   
     @Override
     public String toString() {
         return "system.entities.AthletesRegistration[ id=" + id + " ]";

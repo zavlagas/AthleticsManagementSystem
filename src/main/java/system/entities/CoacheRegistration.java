@@ -41,7 +41,7 @@ public class CoacheRegistration implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Integer id;
+    private int id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "regdate")
@@ -57,20 +57,20 @@ public class CoacheRegistration implements Serializable {
     public CoacheRegistration() {
     }
 
-    public CoacheRegistration(Integer id) {
+    public CoacheRegistration(int id) {
         this.id = id;
     }
 
-    public CoacheRegistration(Integer id, Date regdate) {
+    public CoacheRegistration(int id, Date regdate) {
         this.id = id;
         this.regdate = regdate;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -100,23 +100,30 @@ public class CoacheRegistration implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        int hash = 7;
+        hash = 41 * hash + this.id;
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CoacheRegistration)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        CoacheRegistration other = (CoacheRegistration) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CoacheRegistration other = (CoacheRegistration) obj;
+        if (this.id != other.id) {
             return false;
         }
         return true;
     }
+
+
 
     @Override
     public String toString() {

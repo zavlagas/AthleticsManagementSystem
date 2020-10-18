@@ -4,15 +4,17 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
-import system.entities.Participation;
+import system.entities.ParticipationGaming;
+import system.entities.ParticipationTraining;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-17T18:03:19")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-18T15:57:13")
 @StaticMetamodel(Stadium.class)
 public class Stadium_ { 
 
-    public static volatile ListAttribute<Stadium, Participation> participationsList;
     public static volatile SingularAttribute<Stadium, String> name;
+    public static volatile ListAttribute<Stadium, ParticipationGaming> participationGamingList;
     public static volatile SingularAttribute<Stadium, String> location;
     public static volatile SingularAttribute<Stadium, Integer> sid;
+    public static volatile ListAttribute<Stadium, ParticipationTraining> participationTrainingList;
 
 }

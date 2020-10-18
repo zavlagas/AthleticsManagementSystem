@@ -7,6 +7,7 @@ package system.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -42,7 +43,7 @@ public class Team implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "tid")
-    private Integer tid;
+    private int tid;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -61,21 +62,21 @@ public class Team implements Serializable {
     public Team() {
     }
 
-    public Team(Integer tid) {
+    public Team(int tid) {
         this.tid = tid;
     }
 
-    public Team(Integer tid, String name, String sport) {
+    public Team(int tid, String name, String sport) {
         this.tid = tid;
         this.name = name;
         this.sport = sport;
     }
 
-    public Integer getTid() {
+    public int getTid() {
         return tid;
     }
 
-    public void setTid(Integer tid) {
+    public void setTid(int tid) {
         this.tid = tid;
     }
 
@@ -115,23 +116,34 @@ public class Team implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (tid != null ? tid.hashCode() : 0);
+        int hash = 5;
+        hash = 31 * hash + Objects.hashCode(this.name);
+        hash = 31 * hash + Objects.hashCode(this.sport);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Team)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Team other = (Team) object;
-        if ((this.tid == null && other.tid != null) || (this.tid != null && !this.tid.equals(other.tid))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Team other = (Team) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.sport, other.sport)) {
             return false;
         }
         return true;
     }
+
+  
 
     @Override
     public String toString() {

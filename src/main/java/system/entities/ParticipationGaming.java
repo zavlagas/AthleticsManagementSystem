@@ -6,6 +6,7 @@
 package system.entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,7 +37,7 @@ public class ParticipationGaming implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Integer id;
+    private int id;
     @JoinColumn(name = "arid", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private AthleteRegistration arid;
@@ -57,11 +58,11 @@ public class ParticipationGaming implements Serializable {
         this.id = id;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -99,23 +100,46 @@ public class ParticipationGaming implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        int hash = 7;
+        hash = 59 * hash + this.id;
+        hash = 59 * hash + Objects.hashCode(this.arid);
+        hash = 59 * hash + Objects.hashCode(this.gsid);
+        hash = 59 * hash + Objects.hashCode(this.gid);
+        hash = 59 * hash + Objects.hashCode(this.sid);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ParticipationGaming)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        ParticipationGaming other = (ParticipationGaming) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ParticipationGaming other = (ParticipationGaming) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.arid, other.arid)) {
+            return false;
+        }
+        if (!Objects.equals(this.gsid, other.gsid)) {
+            return false;
+        }
+        if (!Objects.equals(this.gid, other.gid)) {
+            return false;
+        }
+        if (!Objects.equals(this.sid, other.sid)) {
             return false;
         }
         return true;
     }
+
+  
 
     @Override
     public String toString() {

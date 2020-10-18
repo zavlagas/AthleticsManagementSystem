@@ -40,7 +40,7 @@ public class TrainingStats implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "tsid")
-    private Integer tsid;
+    private int tsid;
     @Basic(optional = false)
     @NotNull
     @Column(name = "grade")
@@ -51,11 +51,11 @@ public class TrainingStats implements Serializable {
     public TrainingStats() {
     }
 
-    public TrainingStats(Integer tsid) {
+    public TrainingStats(int tsid) {
         this.tsid = tsid;
     }
 
-    public TrainingStats(Integer tsid, int grade) {
+    public TrainingStats(int tsid, int grade) {
         this.tsid = tsid;
         this.grade = grade;
     }
@@ -64,7 +64,7 @@ public class TrainingStats implements Serializable {
         return tsid;
     }
 
-    public void setTsid(Integer tsid) {
+    public void setTsid(int tsid) {
         this.tsid = tsid;
     }
 
@@ -87,24 +87,30 @@ public class TrainingStats implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (tsid != null ? tsid.hashCode() : 0);
+        int hash = 7;
+        hash = 17 * hash + this.grade;
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TrainingStats)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        TrainingStats other = (TrainingStats) object;
-        if ((this.tsid == null && other.tsid != null) || (this.tsid != null && !this.tsid.equals(other.tsid))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final TrainingStats other = (TrainingStats) obj;
+        if (this.grade != other.grade) {
             return false;
         }
         return true;
     }
 
+  
     @Override
     public String toString() {
         return "system.entities.TrainingStats[ tsid=" + tsid + " ]";

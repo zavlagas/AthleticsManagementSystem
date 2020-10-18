@@ -7,6 +7,7 @@ package system.entities;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -40,7 +41,7 @@ public class GamingStats implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "gsid")
-    private Integer gsid;
+    private int gsid;
     @Basic(optional = false)
     @NotNull
     @Column(name = "grade")
@@ -51,11 +52,11 @@ public class GamingStats implements Serializable {
     public GamingStats() {
     }
 
-    public GamingStats(Integer gsid) {
+    public GamingStats(int gsid) {
         this.gsid = gsid;
     }
 
-    public GamingStats(Integer gsid, int grade) {
+    public GamingStats(int gsid, int grade) {
         this.gsid = gsid;
         this.grade = grade;
     }
@@ -64,7 +65,7 @@ public class GamingStats implements Serializable {
         return gsid;
     }
 
-    public void setGsid(Integer gsid) {
+    public void setGsid(int gsid) {
         this.gsid = gsid;
     }
 
@@ -87,23 +88,37 @@ public class GamingStats implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (gsid != null ? gsid.hashCode() : 0);
+        int hash = 7;
+        hash = 41 * hash + this.gsid;
+        hash = 41 * hash + this.grade;
+        hash = 41 * hash + Objects.hashCode(this.participationGamingList);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof GamingStats)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        GamingStats other = (GamingStats) object;
-        if ((this.gsid == null && other.gsid != null) || (this.gsid != null && !this.gsid.equals(other.gsid))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GamingStats other = (GamingStats) obj;
+        if (this.gsid != other.gsid) {
+            return false;
+        }
+        if (this.grade != other.grade) {
+            return false;
+        }
+        if (!Objects.equals(this.participationGamingList, other.participationGamingList)) {
             return false;
         }
         return true;
     }
+
 
     @Override
     public String toString() {

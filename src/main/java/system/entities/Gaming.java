@@ -45,7 +45,7 @@ public class Gaming implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "gid")
-    private Integer gid;
+    private int gid;
     @Size(max = 10)
     @Column(name = "gresult")
     private String gresult;
@@ -60,20 +60,20 @@ public class Gaming implements Serializable {
     public Gaming() {
     }
 
-    public Gaming(Integer gid) {
+    public Gaming(int gid) {
         this.gid = gid;
     }
 
-    public Gaming(Integer gid, Date gdate) {
+    public Gaming(int gid, Date gdate) {
         this.gid = gid;
         this.gdate = gdate;
     }
 
-    public Integer getGid() {
+    public int getGid() {
         return gid;
     }
 
-    public void setGid(Integer gid) {
+    public void setGid(int gid) {
         this.gid = gid;
     }
 
@@ -104,23 +104,30 @@ public class Gaming implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (gid != null ? gid.hashCode() : 0);
+        int hash = 5;
+        hash = 79 * hash + this.gid;
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Gaming)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Gaming other = (Gaming) object;
-        if ((this.gid == null && other.gid != null) || (this.gid != null && !this.gid.equals(other.gid))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Gaming other = (Gaming) obj;
+        if (this.gid != other.gid) {
             return false;
         }
         return true;
     }
+
+   
 
     @Override
     public String toString() {
