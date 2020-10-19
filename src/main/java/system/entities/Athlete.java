@@ -42,7 +42,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Athlete.findByName", query = "SELECT a FROM Athlete a WHERE a.name = :name"),
     @NamedQuery(name = "Athlete.findByHeight", query = "SELECT a FROM Athlete a WHERE a.height = :height"),
     @NamedQuery(name = "Athlete.findByWeight", query = "SELECT a FROM Athlete a WHERE a.weight = :weight"),
-    @NamedQuery(name = "Athlete.findByDob", query = "SELECT a FROM Athlete a WHERE a.dob = :dob")})
+    @NamedQuery(name = "Athlete.findByDob", query = "SELECT a FROM Athlete a WHERE a.dob = :dob"),
+    @NamedQuery(name = "Athlete.findIfExists", query = "SELECT a FROM Athlete a WHERE a.name = :name and a.height =:height and a.weight = :weight and a.dob = :dob ")
+
+})
 public class Athlete implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -72,7 +75,6 @@ public class Athlete implements Serializable {
     private Date dob;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aid")
     private List<AthleteRegistration> athletesRegistrationList;
-    
 
     public Athlete() {
     }
@@ -147,11 +149,12 @@ public class Athlete implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.height) ^ (Double.doubleToLongBits(this.height) >>> 32));
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.weight) ^ (Double.doubleToLongBits(this.weight) >>> 32));
-        hash = 59 * hash + Objects.hashCode(this.dob);
+        int hash = 5;
+        hash = 17 * hash + this.aid;
+        hash = 17 * hash + Objects.hashCode(this.name);
+        hash = 17 * hash + (int) (Double.doubleToLongBits(this.height) ^ (Double.doubleToLongBits(this.height) >>> 32));
+        hash = 17 * hash + (int) (Double.doubleToLongBits(this.weight) ^ (Double.doubleToLongBits(this.weight) >>> 32));
+        hash = 17 * hash + Objects.hashCode(this.dob);
         return hash;
     }
 
@@ -167,6 +170,9 @@ public class Athlete implements Serializable {
             return false;
         }
         final Athlete other = (Athlete) obj;
+        if (this.aid != other.aid) {
+            return false;
+        }
         if (Double.doubleToLongBits(this.height) != Double.doubleToLongBits(other.height)) {
             return false;
         }

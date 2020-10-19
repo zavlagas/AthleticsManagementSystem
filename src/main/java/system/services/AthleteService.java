@@ -26,7 +26,7 @@ public class AthleteService {
 
     public String createAthleteIfNotExists(String name, String height, String weigth, String dob) {
         Athlete athlete = new Athlete(name,Double.parseDouble(height),Double.parseDouble(weigth),Date.valueOf(dob));
-        String processInfo = athleteDao.insertAthleteIfNotExistsToDatabase(athlete);
+        String processInfo = athleteDao.insertAthleteToDatabase(athlete);
         return(processInfo);
     }
 
