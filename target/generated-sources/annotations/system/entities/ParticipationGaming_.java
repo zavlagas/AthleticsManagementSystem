@@ -8,7 +8,7 @@ import system.entities.Gaming;
 import system.entities.GamingStats;
 import system.entities.Stadium;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-19T10:58:22")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-19T11:20:47")
 @StaticMetamodel(ParticipationGaming.class)
 public class ParticipationGaming_ { 
 

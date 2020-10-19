@@ -28,7 +28,6 @@ public class LogoutServlet extends HttpServlet {
         service.closeManagerFactoryConnection();
         HttpSession session = req.getSession();
         session.invalidate(); 
-//        session.removeAttribute("username"); 
         String contextPath = req.getContextPath();
         resp.sendRedirect(contextPath+"/login.jsp");
     }

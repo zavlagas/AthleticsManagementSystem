@@ -36,12 +36,12 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "athletes")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Athlete.findAll", query = "SELECT a FROM Athletes a"),
-    @NamedQuery(name = "Athlete.findByAid", query = "SELECT a FROM Athletes a WHERE a.aid = :aid"),
-    @NamedQuery(name = "Athlete.findByName", query = "SELECT a FROM Athletes a WHERE a.name = :name"),
-    @NamedQuery(name = "Athlete.findByHeight", query = "SELECT a FROM Athletes a WHERE a.height = :height"),
-    @NamedQuery(name = "Athlete.findByWeight", query = "SELECT a FROM Athletes a WHERE a.weight = :weight"),
-    @NamedQuery(name = "Athlete.findByDob", query = "SELECT a FROM Athletes a WHERE a.dob = :dob")})
+    @NamedQuery(name = "Athlete.findAll", query = "SELECT a FROM Athlete a"),
+    @NamedQuery(name = "Athlete.findByAid", query = "SELECT a FROM Athlete a WHERE a.aid = :aid"),
+    @NamedQuery(name = "Athlete.findByName", query = "SELECT a FROM Athlete a WHERE a.name = :name"),
+    @NamedQuery(name = "Athlete.findByHeight", query = "SELECT a FROM Athlete a WHERE a.height = :height"),
+    @NamedQuery(name = "Athlete.findByWeight", query = "SELECT a FROM Athlete a WHERE a.weight = :weight"),
+    @NamedQuery(name = "Athlete.findByDob", query = "SELECT a FROM Athlete a WHERE a.dob = :dob")})
 public class Athlete implements Serializable {
 
     private static final long serialVersionUID = 1L;
