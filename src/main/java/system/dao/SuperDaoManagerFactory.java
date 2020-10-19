@@ -19,7 +19,7 @@ public class SuperDaoManagerFactory {
     private EntityManager em;
 
     protected static void openEntityManagerFactory() {
-        SuperDaoManagerFactory.emf = Persistence.createEntityManagerFactory("salesPU");
+        SuperDaoManagerFactory.emf = Persistence.createEntityManagerFactory("amsPU");
     }
 
     protected static void closeEntityManagerFactory() {

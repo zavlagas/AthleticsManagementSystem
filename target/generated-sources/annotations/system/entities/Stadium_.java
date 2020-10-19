@@ -7,7 +7,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import system.entities.ParticipationGaming;
 import system.entities.ParticipationTraining;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-19T10:11:48")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-19T10:58:22")
 @StaticMetamodel(Stadium.class)
 public class Stadium_ { 
 

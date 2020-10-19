@@ -12,11 +12,11 @@
     <c:if test="${username != null}">
         <nav>
             <ul>
-                <li id="logo"><a href="/WebServletJpa/index.jsp">Sales Company</a></li>
-                <li id="product-li"><a href="/WebServletJpa/ListProductServlet">Products</a></li>
-                <li id="customer-li"><a href="/WebServletJpa/ListCustomerServlet">Customers</a></li>
-                <li id="salesman-li"><a href="/WebServletJpa/ListSalesmanServlet">Salesman</a></li>
-                <li id="sales-li"><a href="/WebServletJpa/ListSalesServlet">Sales</a></li>
+                <li id="logo"><a href="/WebServletJpa/index.jsp">Athletics Management System</a></li>
+                <li id="athletes-li"><a href="/WebServletJpa/ListProductServlet">Athletes</a></li>
+                <li id="coaches-li"><a href="/WebServletJpa/ListCustomerServlet">Coaches</a></li>
+                <li id="team-li"><a href="/WebServletJpa/ListSalesmanServlet">Teams</a></li>
+                <li id="stadium-li"><a href="/WebServletJpa/ListSalesServlet">Stadiums</a></li>
                 <li id="logged-li"><a href="#">User: ${username}</a></li>
                 <li id="logout-li"><a href="/WebServletJpa/LogoutServlet">Logout</a></li>
             </ul>
