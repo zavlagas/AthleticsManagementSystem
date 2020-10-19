@@ -7,7 +7,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import system.entities.ParticipationGaming;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-19T10:04:54")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-19T10:11:48")
 @StaticMetamodel(Gaming.class)
 public class Gaming_ { 
 
