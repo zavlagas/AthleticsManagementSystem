@@ -10,7 +10,7 @@ import system.entities.ParticipationGaming;
 import system.entities.ParticipationTraining;
 import system.entities.Team;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-18T15:57:13")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-19T10:04:54")
 @StaticMetamodel(AthleteRegistration.class)
 public class AthleteRegistration_ { 
 

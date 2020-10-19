@@ -143,8 +143,6 @@ public class Stadium implements Serializable {
         return true;
     }
 
-    
-
     @Override
     public String toString() {
         return "system.entities.Stadiums[ sid=" + sid + " ]";
