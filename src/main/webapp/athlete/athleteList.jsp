@@ -10,29 +10,41 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="styling/styling.css" />
+        <link rel="stylesheet" href="../styling/styling.css" />
         <title>Athletes List</title>
     </head>
     <body>
         <jsp:include page="../header.jsp"/>
         <section class="container">
             <div class="btn-area">
-                <a  class="btn" href="${pageContext.request.contextPath}/...here">Create Athlete</a> 
+                <a  class="btn" href="${pageContext.request.contextPath}/athlete/create">Create Athlete</a> 
             </div>
             <table class="table">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Height</th>
+                        <th>Weight</th>
+                        <th>Birth Date</th>
+                        <th colspan="2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="" items="">
+                    <c:forEach var="ath" items="${athletes}">
                         <tr>
-                            <td></td>
+                            <td>${ath.aid}</td>
+                            <td>${ath.name}</td>
+                            <td>${ath.height}</td>
+                            <td>${ath.weight}</td>
+                            <td>${ath.dob}</td>
+                            <td class="buttontd"><a class="btn" href="${pageContext.request.contextPath}/athlete/editAthlete?id=${ath.aid}">Edit</a></td>
+                            <td class="buttontd"><a class="btn" href="${pageContext.request.contextPath}/athlete/deleteAthlete?id=${ath.aid}">Delete</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
+                <p class="msg">${param.message}</p>
         </section>
         <jsp:include page="../footer.jsp"/>
     </body>

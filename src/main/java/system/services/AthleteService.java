@@ -5,10 +5,31 @@
  */
 package system.services;
 
+
+import java.sql.Date;
+import java.util.List;
+import system.dao.AthleteDao;
+import system.entities.Athlete;
+
 /**
  *
  * @author User
  */
 public class AthleteService {
-    
+
+    AthleteDao athleteDao = new AthleteDao();
+
+    public List<Athlete> getAllAthletes() {
+        List<Athlete> athletes = athleteDao.getAthletesFromDatabase();
+        return(athletes);
+    }
+
+    public String createAthleteIfNotExists(String name, String height, String weigth, String dob) {
+        Athlete athlete = new Athlete(name,Double.parseDouble(height),Double.parseDouble(weigth),Date.valueOf(dob));
+        String processInfo = athleteDao.insertAthleteIfNotExistsToDatabase(athlete);
+        return(processInfo);
+    }
+
+   
+
 }

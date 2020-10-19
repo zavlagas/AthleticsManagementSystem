@@ -5,6 +5,9 @@
  */
 package system.dao;
 
+import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -45,5 +48,13 @@ public class SuperDaoManagerFactory {
     protected void closeConnection() {
         em.close();
     }
+
+    
+
+    
+
+    
+    
+    
 
 }

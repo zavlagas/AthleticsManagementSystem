@@ -7,7 +7,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import system.entities.Coache;
 import system.entities.Team;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-19T11:20:47")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-19T17:13:05")
 @StaticMetamodel(CoacheRegistration.class)
 public class CoacheRegistration_ { 
 

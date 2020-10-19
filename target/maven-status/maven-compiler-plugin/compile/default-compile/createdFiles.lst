@@ -37,6 +37,7 @@ system\entities\Athlete.class
 system\services\GamingService.class
 system\services\ConnectionService.class
 system\dao\ConnectionDao.class
+system\servlet\athlete\AthleteCreateServlet.class
 system\dao\CoacheDao.class
 system\entities\CoacheRegistration.class
 system\entities\ParticipationTraining_.class

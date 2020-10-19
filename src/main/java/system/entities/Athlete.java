@@ -23,6 +23,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -71,6 +72,7 @@ public class Athlete implements Serializable {
     private Date dob;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aid")
     private List<AthleteRegistration> athletesRegistrationList;
+    
 
     public Athlete() {
     }
@@ -81,6 +83,13 @@ public class Athlete implements Serializable {
 
     public Athlete(int aid, String name, double height, double weight, Date dob) {
         this.aid = aid;
+        this.name = name;
+        this.height = height;
+        this.weight = weight;
+        this.dob = dob;
+    }
+
+    public Athlete(String name, double height, double weight, Date dob) {
         this.name = name;
         this.height = height;
         this.weight = weight;
@@ -173,13 +182,9 @@ public class Athlete implements Serializable {
         return true;
     }
 
-    
-
-    
-
     @Override
     public String toString() {
         return "system.entities.Athletes[ aid=" + aid + " ]";
     }
-    
+
 }
