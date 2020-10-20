@@ -45,7 +45,8 @@ public class SuperDaoManagerFactory {
         return (em1);
     }
 
-    protected void closeConnection() {
+    protected void closeAndClearConnection() {
+        em.clear();
         em.close();
     }
 

@@ -2,11 +2,13 @@ C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\training\TrainingServletList.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\dao\TrainingDao.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\dao\AthleteDao.java
+C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\athlete\AthleteEditServlet.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\dao\CoacheDao.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\athlete\AthleteServletList.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\dao\SuperDaoManagerFactory.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\Training.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\AthleteRegistration.java
+C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\athlete\AthleteDeleteServlet.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\authorization\LogoutServlet.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\CoacheRegistration.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\TrainingStats.java

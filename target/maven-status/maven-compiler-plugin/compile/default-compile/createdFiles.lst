@@ -16,6 +16,7 @@ system\services\TeamService.class
 system\entities\Coache.class
 system\enums\LocationType.class
 system\dao\TrainingDao.class
+system\servlet\athlete\AthleteEditServlet.class
 system\entities\Gaming.class
 system\entities\ParticipationGaming_.class
 system\entities\Stadium_.class
@@ -24,6 +25,7 @@ system\servlet\team\TeamServletList.class
 system\enums\TeamSportType.class
 system\entities\CoacheRegistration_.class
 system\servlet\athlete\AthleteServletList.class
+system\servlet\athlete\AthleteDeleteServlet.class
 system\entities\Athlete_.class
 system\entities\TrainingStats_.class
 system\dao\AthleteDao.class
