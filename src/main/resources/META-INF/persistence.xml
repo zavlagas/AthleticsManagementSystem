@@ -8,12 +8,12 @@
     <class>system.entities.GamingStats</class>
     <class>system.entities.Athlete</class>
     <class>system.entities.AthleteRegistration</class>
-    <class>system.entities.Coache</class>
-    <class>system.entities.CoacheRegistration</class>
     <class>system.entities.Gaming</class>
     <class>system.entities.Stadium</class>
     <class>system.entities.Team</class>
     <class>system.entities.Training</class>
+    <class>system.entities.Coach</class>
+    <class>system.entities.CoachRegistration</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ams?serverTimezone=Europe/Athens"/>

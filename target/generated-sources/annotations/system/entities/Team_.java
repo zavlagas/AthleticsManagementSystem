@@ -5,9 +5,9 @@ import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import system.entities.AthleteRegistration;
-import system.entities.CoacheRegistration;
+import system.entities.CoachRegistration;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-20T14:46:56")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-10-21T01:45:44")
 @StaticMetamodel(Team.class)
 public class Team_ { 
 
@@ -15,6 +15,6 @@ public class Team_ {
     public static volatile SingularAttribute<Team, String> name;
     public static volatile SingularAttribute<Team, String> sport;
     public static volatile SingularAttribute<Team, Integer> tid;
-    public static volatile ListAttribute<Team, CoacheRegistration> coachesRegistrationList;
+    public static volatile ListAttribute<Team, CoachRegistration> coachesRegistrationList;
 
 }

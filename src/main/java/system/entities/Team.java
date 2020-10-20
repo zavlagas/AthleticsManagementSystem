@@ -57,7 +57,7 @@ public class Team implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tid")
     private List<AthleteRegistration> athletesRegistrationList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tid")
-    private List<CoacheRegistration> coachesRegistrationList;
+    private List<CoachRegistration> coachesRegistrationList;
 
     public Team() {
     }
@@ -106,11 +106,11 @@ public class Team implements Serializable {
     }
 
     @XmlTransient
-    public List<CoacheRegistration> getCoachesRegistrationList() {
+    public List<CoachRegistration> getCoachesRegistrationList() {
         return coachesRegistrationList;
     }
 
-    public void setCoachesRegistrationList(List<CoacheRegistration> coachesRegistrationList) {
+    public void setCoachesRegistrationList(List<CoachRegistration> coachesRegistrationList) {
         this.coachesRegistrationList = coachesRegistrationList;
     }
 
