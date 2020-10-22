@@ -52,4 +52,34 @@ public class CoachDao extends SuperDaoManagerFactory {
 
     }
 
+    public String deleteCoachToDatabaseBy(int coachId) {
+        EntityManager em = openConnection();
+        em.getTransaction().begin();
+        em.remove(em.getReference(Coach.class, coachId));
+        em.getTransaction().commit();
+        closeAndClearConnection();
+        return ("The Coach Deleted");
+    }
+
+    public Coach fetchCoachFromDatabaseBy(int coachId) {
+        EntityManager em = openConnection();
+        Coach coach = em.createNamedQuery("Coach.findByCid", Coach.class)
+                .setParameter("cid", coachId)
+                .getSingleResult();
+
+        closeAndClearConnection();
+        return (coach);
+    }
+
+    public String updateCoachToDatabase(Coach coach) {
+        EntityManager em = openConnection();
+        em.getTransaction().begin();
+        Coach c = em.merge(coach);
+        c.setName(coach.getName());
+        c.setSalary(coach.getSalary());
+        em.getTransaction().commit();
+        closeAndClearConnection();
+        return ("The Coach Updated");
+    }
+
 }

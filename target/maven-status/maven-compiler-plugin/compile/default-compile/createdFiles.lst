@@ -48,6 +48,8 @@ system\dao\StadiumDao.class
 system\entities\Coach.class
 system\entities\Team_.class
 system\services\TrainingService.class
+system\servlet\coache\CoachEditServlet.class
+system\servlet\coache\CoachDeleteServlet.class
 system\entities\Stadium.class
 system\dao\GamingDao.class
 system\servlet\gaming\GamingServletList.class

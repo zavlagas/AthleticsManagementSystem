@@ -20,7 +20,7 @@
                 <label for="co_name">Enter Name</label>
                 <input id="co_name" type="text" name="name"/>
                 <label for="co_salary">Enter Salary</label>
-                <input id="co_salary" min="500" type="number" name="salary"/>
+                <input id="co_salary" step="0.010" min="500" max="9999999" type="number" name="salary"/>
                 <input class="btn" type="submit" value="Submit"/>
             </form>
         </section>

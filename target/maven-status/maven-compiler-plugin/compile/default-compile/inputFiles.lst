@@ -16,6 +16,7 @@ C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\Stadium.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\dao\TeamDao.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\athlete\AthleteCreateServlet.java
+C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\coache\CoachEditServlet.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\gaming\GamingServletList.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\dao\StadiumDao.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\team\TeamServletList.java
@@ -25,6 +26,7 @@ C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\services\TrainingService.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\coache\CoacheServletList.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\ParticipationTraining.java
+C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\coache\CoachDeleteServlet.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\ParticipationGaming.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\Coach.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\enums\TeamSportType.java

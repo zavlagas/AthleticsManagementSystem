@@ -28,4 +28,24 @@ public class CoachService {
         return (processInfo);
     }
 
+    public String deleteCoachBy(String id) {
+        int coachId = Integer.parseInt(id);
+        String processInfo = cdao.deleteCoachToDatabaseBy(coachId);
+        return (processInfo);
+    }
+
+    public Coach fetchCoachBy(String id) {
+        int coachId = Integer.parseInt(id);
+        Coach coach = cdao.fetchCoachFromDatabaseBy(coachId);
+        return (coach);
+    }
+
+    public String updateCoachWith(String id, String name, String salary) {
+        int coachId = Integer.parseInt(id);
+        double coachSalary = Double.parseDouble(salary);
+        Coach coach = new Coach(coachId, name, coachSalary);
+        String processInfo = cdao.updateCoachToDatabase(coach);
+        return (processInfo);
+    }
+
 }
