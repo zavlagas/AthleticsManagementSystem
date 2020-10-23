@@ -60,7 +60,23 @@ public class StadiumDao extends SuperDaoManagerFactory {
     }
 
     public String updateStadiumToDatabase(Stadium stadium) {
-       
+        EntityManager em = openConnection();
+        em.getTransaction().begin();
+        Stadium st = em.merge(stadium);
+        st.setName(stadium.getName());
+        st.setLocation(stadium.getLocation());
+        em.getTransaction().commit();
+        closeAndClearConnection();
+        return ("The Stadium Updated");
+    }
+
+    public String deleteStadiumFromDatabase(int stadiumId) {
+        EntityManager em = openConnection();
+        em.getTransaction().begin();
+        em.remove(em.getReference(Stadium.class, stadiumId));
+        em.getTransaction().commit();
+        closeAndClearConnection();
+        return ("The Stadium Deleted");
     }
 
 }

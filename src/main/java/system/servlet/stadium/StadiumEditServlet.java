@@ -22,9 +22,9 @@ import system.services.StadiumService;
  */
 @WebServlet(name = "StadiumEditServlet", urlPatterns = {"/stadium/editStadium"})
 public class StadiumEditServlet extends HttpServlet {
-    
+
     StadiumService service = new StadiumService();
-    
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
@@ -50,7 +50,7 @@ public class StadiumEditServlet extends HttpServlet {
         String location = req.getParameter("location");
         String processInfo = service.updateStadiumWith(id, name, location);
         req.setAttribute("message", processInfo);
-        resp.sendRedirect(req.getContextPath() + "/stadium/list?message+" + processInfo);
+        resp.sendRedirect(req.getContextPath() + "/stadium/list?message=" + processInfo);
     }
-    
+
 }

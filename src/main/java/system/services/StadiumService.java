@@ -41,4 +41,10 @@ public class StadiumService {
         return (processInfo);
     }
 
+    public String deleteStadium(String id) {
+       int stadiumId = Integer.parseInt(id);
+       String processInfo = sdao.deleteStadiumFromDatabase(stadiumId);
+       return(processInfo);
+    }
+
 }
