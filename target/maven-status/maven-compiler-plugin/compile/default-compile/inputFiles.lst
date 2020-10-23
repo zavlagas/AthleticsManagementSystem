@@ -1,4 +1,5 @@
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\enums\LocationType.java
+C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\stadium\StadiumCreateServlet.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\training\TrainingServletList.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\dao\TrainingDao.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\dao\AthleteDao.java
@@ -11,7 +12,6 @@ C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\athlete\AthleteDeleteServlet.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\authorization\LogoutServlet.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\services\CoachService.java
-C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\TrainingStats.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\services\StadiumService.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\Stadium.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\dao\TeamDao.java
@@ -19,6 +19,7 @@ C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\coache\CoachEditServlet.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\gaming\GamingServletList.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\dao\StadiumDao.java
+C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\stadium\StadiumDeleteServlet.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\team\TeamServletList.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\dao\ConnectionDao.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\services\TeamService.java
@@ -32,6 +33,7 @@ C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\enums\TeamSportType.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\Team.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\services\ConnectionService.java
+C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\stadium\StadiumEditServlet.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\Athlete.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\authorization\LoginServlet.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\Gaming.java
@@ -40,4 +42,3 @@ C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\coache\CoachCreateServlet.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\services\GamingService.java
 C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\servlet\stadium\StadiumServletList.java
-C:\Users\User\Documents\java\ServletApps\AthleticsManagementSystem\src\main\java\system\entities\GamingStats.java

@@ -41,9 +41,7 @@ public class ParticipationGaming implements Serializable {
     @JoinColumn(name = "arid", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private AthleteRegistration arid;
-    @JoinColumn(name = "gsid", referencedColumnName = "gsid")
-    @ManyToOne(optional = false)
-    private GamingStats gsid;
+    private int grade;
     @JoinColumn(name = "gid", referencedColumnName = "gid")
     @ManyToOne(optional = false)
     private Gaming gid;
@@ -74,14 +72,6 @@ public class ParticipationGaming implements Serializable {
         this.arid = arid;
     }
 
-    public GamingStats getGsid() {
-        return gsid;
-    }
-
-    public void setGsid(GamingStats gsid) {
-        this.gsid = gsid;
-    }
-
     public Gaming getGid() {
         return gid;
     }
@@ -98,14 +88,22 @@ public class ParticipationGaming implements Serializable {
         this.sid = sid;
     }
 
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + this.id;
-        hash = 59 * hash + Objects.hashCode(this.arid);
-        hash = 59 * hash + Objects.hashCode(this.gsid);
-        hash = 59 * hash + Objects.hashCode(this.gid);
-        hash = 59 * hash + Objects.hashCode(this.sid);
+        hash = 67 * hash + this.id;
+        hash = 67 * hash + Objects.hashCode(this.arid);
+        hash = 67 * hash + this.grade;
+        hash = 67 * hash + Objects.hashCode(this.gid);
+        hash = 67 * hash + Objects.hashCode(this.sid);
         return hash;
     }
 
@@ -124,26 +122,21 @@ public class ParticipationGaming implements Serializable {
         if (this.id != other.id) {
             return false;
         }
-        if (!Objects.equals(this.arid, other.arid)) {
+        if (this.grade != other.grade) {
             return false;
         }
-        if (!Objects.equals(this.gsid, other.gsid)) {
+        if (!Objects.equals(this.arid, other.arid)) {
             return false;
         }
         if (!Objects.equals(this.gid, other.gid)) {
             return false;
         }
-        if (!Objects.equals(this.sid, other.sid)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.sid, other.sid);
     }
-
-  
 
     @Override
     public String toString() {
         return "system.entities.ParticipationGaming[ id=" + id + " ]";
     }
-    
+
 }

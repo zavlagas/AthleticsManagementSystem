@@ -1,7 +1,5 @@
 system\services\StadiumService.class
-system\entities\GamingStats_.class
 system\entities\ParticipationGaming.class
-system\entities\TrainingStats.class
 system\entities\Training.class
 system\servlet\training\TrainingServletList.class
 system\servlet\authorization\LogoutServlet.class
@@ -23,12 +21,12 @@ system\entities\Gaming.class
 system\entities\ParticipationGaming_.class
 system\entities\Stadium_.class
 system\servlet\stadium\StadiumServletList.class
+system\servlet\stadium\StadiumEditServlet.class
 system\servlet\team\TeamServletList.class
 system\enums\TeamSportType.class
 system\servlet\athlete\AthleteServletList.class
 system\servlet\athlete\AthleteDeleteServlet.class
 system\entities\Athlete_.class
-system\entities\TrainingStats_.class
 system\dao\AthleteDao.class
 system\entities\CoachRegistration_.class
 system\entities\AthleteRegistration_.class
@@ -40,12 +38,13 @@ system\entities\Athlete.class
 system\services\GamingService.class
 system\services\ConnectionService.class
 system\dao\ConnectionDao.class
+system\servlet\stadium\StadiumDeleteServlet.class
 system\servlet\athlete\AthleteCreateServlet.class
 system\services\CoachService.class
 system\entities\ParticipationTraining_.class
-system\entities\GamingStats.class
 system\dao\StadiumDao.class
 system\entities\Coach.class
+system\servlet\stadium\StadiumCreateServlet.class
 system\entities\Team_.class
 system\services\TrainingService.class
 system\servlet\coache\CoachEditServlet.class

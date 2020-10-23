@@ -44,12 +44,10 @@ public class ParticipationTraining implements Serializable {
     @JoinColumn(name = "sid", referencedColumnName = "sid")
     @ManyToOne(optional = false)
     private Stadium sid;
-    @JoinColumn(name = "tsid", referencedColumnName = "tsid")
-    @ManyToOne(optional = false)
-    private TrainingStats tsid;
     @JoinColumn(name = "trid", referencedColumnName = "trid")
     @ManyToOne(optional = false)
     private Training trid;
+    private int grade;
 
     public ParticipationTraining() {
     }
@@ -82,14 +80,6 @@ public class ParticipationTraining implements Serializable {
         this.sid = sid;
     }
 
-    public TrainingStats getTsid() {
-        return tsid;
-    }
-
-    public void setTsid(TrainingStats tsid) {
-        this.tsid = tsid;
-    }
-
     public Training getTrid() {
         return trid;
     }
@@ -97,13 +87,22 @@ public class ParticipationTraining implements Serializable {
     public void setTrid(Training trid) {
         this.trid = trid;
     }
+    
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 19 * hash + Objects.hashCode(this.arid);
-        hash = 19 * hash + Objects.hashCode(this.sid);
-        hash = 19 * hash + Objects.hashCode(this.tsid);
+        hash = 31 * hash + this.id;
+        hash = 31 * hash + Objects.hashCode(this.sid);
+        hash = 31 * hash + Objects.hashCode(this.trid);
+        hash = 31 * hash + this.grade;
         return hash;
     }
 
@@ -119,23 +118,29 @@ public class ParticipationTraining implements Serializable {
             return false;
         }
         final ParticipationTraining other = (ParticipationTraining) obj;
-        if (!Objects.equals(this.arid, other.arid)) {
+        if (this.id != other.id) {
+            return false;
+        }
+        if (this.grade != other.grade) {
             return false;
         }
         if (!Objects.equals(this.sid, other.sid)) {
             return false;
         }
-        if (!Objects.equals(this.tsid, other.tsid)) {
+        if (!Objects.equals(this.trid, other.trid)) {
             return false;
         }
         return true;
     }
 
+    
   
 
     @Override
     public String toString() {
         return "system.entities.ParticipationTraining[ id=" + id + " ]";
     }
+
+    
     
 }

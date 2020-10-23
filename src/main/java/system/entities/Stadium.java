@@ -35,7 +35,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Stadium.findAll", query = "SELECT s FROM Stadium s"),
     @NamedQuery(name = "Stadium.findBySid", query = "SELECT s FROM Stadium s WHERE s.sid = :sid"),
     @NamedQuery(name = "Stadium.findByName", query = "SELECT s FROM Stadium s WHERE s.name = :name"),
-    @NamedQuery(name = "Stadium.findByLocation", query = "SELECT s FROM Stadium s WHERE s.location = :location")})
+    @NamedQuery(name = "Stadium.findByLocation", query = "SELECT s FROM Stadium s WHERE s.location = :location"),
+    @NamedQuery(name = "Stadium.findIfExists", query = "SELECT s FROM Stadium s WHERE s.name =:name and s.location = :location")})
 public class Stadium implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -68,6 +69,11 @@ public class Stadium implements Serializable {
 
     public Stadium(Integer sid, String name, String location) {
         this.sid = sid;
+        this.name = name;
+        this.location = location;
+    }
+
+    public Stadium(String name, String location) {
         this.name = name;
         this.location = location;
     }
@@ -147,5 +153,5 @@ public class Stadium implements Serializable {
     public String toString() {
         return "system.entities.Stadiums[ sid=" + sid + " ]";
     }
-    
+
 }
