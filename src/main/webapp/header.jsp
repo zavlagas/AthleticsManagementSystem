@@ -10,15 +10,15 @@
 <!DOCTYPE html>
 <header>
     <c:if test="${username != null}">
-        <nav>
+        <nav >
             <ul>
-                <li id="logo"><a href="/AthleticsManagementSystem/index.jsp">Athletics Management System</a></li>
-                <li id="athletes-li"><a href="/AthleticsManagementSystem/athlete/list">Athletes</a></li>
-                <li id="coaches-li"><a href="/AthleticsManagementSystem/coach/list">Coaches</a></li>
-                <li id="team-li"><a href="/AthleticsManagementSystem/team/list">Teams</a></li>
-                <li id="stadium-li"><a href="/AthleticsManagementSystem/stadium/list">Stadiums</a></li>
-                <li id="logged-li"><a href="#">User: ${username}</a></li>
-                <li id="logout-li"><a href="/AthleticsManagementSystem/LogoutServlet">Logout</a></li>
+                <li><a id="logo" href="/AthleticsManagementSystem/index.jsp">Athletics Management System</a></li>
+                <li><a id="athletes-li" href="/AthleticsManagementSystem/athlete/list">Athletes</a></li>
+                <li><a id="coaches-li" href="/AthleticsManagementSystem/coach/list">Coaches</a></li>
+                <li><a id="team-li" href="/AthleticsManagementSystem/team/list">Teams</a></li>
+                <li><a id="stadium-li" href="/AthleticsManagementSystem/stadium/list">Stadiums</a></li>
+                <li><a id="logged-li" href="#">User: ${username}</a></li>
+                <li><a id="logout-li" href="/AthleticsManagementSystem/LogoutServlet">Logout</a></li>
             </ul>
         </nav>
     </c:if> 
