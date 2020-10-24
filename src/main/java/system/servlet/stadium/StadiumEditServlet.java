@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import system.entities.Stadium;
+import system.enums.LocationType;
 import system.services.StadiumService;
 
 /**
@@ -29,6 +30,7 @@ public class StadiumEditServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
         Stadium stadium = service.fetchStadiumById(id);
+        req.setAttribute("LocationType", LocationType.values());
         req.setAttribute("st", stadium);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/stadium/editForm.jsp");
         dispatcher.forward(req, resp);

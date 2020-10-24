@@ -12,6 +12,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,6 +25,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import system.enums.LocationType;
 
 /**
  *
@@ -54,7 +57,8 @@ public class Stadium implements Serializable {
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "location")
-    private String location;
+    @Enumerated(EnumType.STRING)
+    private LocationType location;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sid")
     private List<ParticipationTraining> participationTrainingList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sid")
@@ -67,13 +71,13 @@ public class Stadium implements Serializable {
         this.sid = sid;
     }
 
-    public Stadium(Integer sid, String name, String location) {
+    public Stadium(Integer sid, String name, LocationType location) {
         this.sid = sid;
         this.name = name;
         this.location = location;
     }
 
-    public Stadium(String name, String location) {
+    public Stadium(String name, LocationType location) {
         this.name = name;
         this.location = location;
     }
@@ -94,11 +98,11 @@ public class Stadium implements Serializable {
         this.name = name;
     }
 
-    public String getLocation() {
+    public LocationType getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(LocationType location) {
         this.location = location;
     }
 

@@ -8,6 +8,7 @@ package system.services;
 import java.util.List;
 import system.dao.StadiumDao;
 import system.entities.Stadium;
+import system.enums.LocationType;
 
 /**
  *
@@ -24,7 +25,8 @@ public class StadiumService {
     }
 
     public String createStadiumIfNotExists(String name, String location) {
-        Stadium stadium = new Stadium(name, location);
+        LocationType lType = Enum.valueOf(LocationType.class, location);
+        Stadium stadium = new Stadium(name, lType);
         String processInfo = sdao.insertStadiumToDatabase(stadium);
         return (processInfo);
     }
@@ -36,15 +38,16 @@ public class StadiumService {
     }
 
     public String updateStadiumWith(String id, String name, String location) {
+        LocationType lType = Enum.valueOf(LocationType.class, location);
         int stadiumId = Integer.parseInt(id);
-        String processInfo = sdao.updateStadiumToDatabase(new Stadium(stadiumId, name, location));
+        String processInfo = sdao.updateStadiumToDatabase(new Stadium(stadiumId, name, lType));
         return (processInfo);
     }
 
     public String deleteStadium(String id) {
-       int stadiumId = Integer.parseInt(id);
-       String processInfo = sdao.deleteStadiumFromDatabase(stadiumId);
-       return(processInfo);
+        int stadiumId = Integer.parseInt(id);
+        String processInfo = sdao.deleteStadiumFromDatabase(stadiumId);
+        return (processInfo);
     }
 
 }

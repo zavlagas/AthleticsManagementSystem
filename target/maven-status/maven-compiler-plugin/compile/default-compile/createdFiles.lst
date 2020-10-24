@@ -2,6 +2,7 @@ system\services\StadiumService.class
 system\entities\ParticipationGaming.class
 system\entities\Training.class
 system\servlet\training\TrainingServletList.class
+system\servlet\team\TeamDeleteServlet.class
 system\servlet\authorization\LogoutServlet.class
 system\entities\CoachRegistration.class
 system\servlet\coache\CoachCreateServlet.class
@@ -47,6 +48,7 @@ system\entities\Coach.class
 system\servlet\stadium\StadiumCreateServlet.class
 system\entities\Team_.class
 system\services\TrainingService.class
+system\servlet\team\TeamCreateServlet.class
 system\servlet\coache\CoachEditServlet.class
 system\servlet\coache\CoachDeleteServlet.class
 system\entities\Stadium.class

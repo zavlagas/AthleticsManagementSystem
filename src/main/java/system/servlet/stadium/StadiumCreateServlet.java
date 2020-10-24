@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import system.enums.LocationType;
 import system.services.StadiumService;
 
 /**
@@ -21,11 +22,13 @@ import system.services.StadiumService;
  */
 @WebServlet(name = "StadiumCreateServlet", urlPatterns = {"/stadium/create"})
 public class StadiumCreateServlet extends HttpServlet {
-    
+
     StadiumService service = new StadiumService();
-    
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        req.setAttribute("LocationType", LocationType.values());
         RequestDispatcher dispatcher = req.getRequestDispatcher("/stadium/createForm.jsp");
         dispatcher.forward(req, resp);
     }
@@ -45,5 +48,5 @@ public class StadiumCreateServlet extends HttpServlet {
         req.setAttribute("message", processInfo);
         resp.sendRedirect(req.getContextPath() + "/stadium/list?message=" + processInfo);
     }
-    
+
 }
